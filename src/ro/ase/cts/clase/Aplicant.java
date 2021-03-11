@@ -1,5 +1,7 @@
 package ro.ase.cts.clase;
 
+import java.util.Arrays;
+
 public abstract class Aplicant{
 	protected String nume;
 	protected String prenume;
@@ -27,12 +29,13 @@ public abstract class Aplicant{
 	public void setVarsta(int varsta) {
 		this.varsta = varsta;
 	}
-	public void statut(){
-		if(punctaj>80)
-			System.out.println("Aplicantul "+nume+" "+prenume+" a fost acceptat.");
-		else
-			System.out.println("Aplicantul "+nume+" "+prenume+" nu a fost acceptat.");
-		}
+	public void afisareRaspunsProiect(Proiect proiect) {
+
+		boolean esteAcceptat = punctaj >= proiect.getPragDeAcceptare();
+		StringBuilder sb = new StringBuilder("Aplicantul ").append(nume).append(" ").append(prenume).append(" ");
+		sb.append(esteAcceptat ? "a fost acceptat" : "a fost respins");
+		System.out.println(sb.toString());
+	}
 	public int getPunctaj() {
 		return punctaj;
 	}
@@ -75,4 +78,15 @@ public abstract class Aplicant{
 
 	public abstract float getSumaFinantare();
 
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("Nume='").append(nume).append('\'');
+		sb.append(", Prenume='").append(prenume).append('\'');
+		sb.append(", Varsta=").append(varsta);
+		sb.append(", Punctaj=").append(punctaj);
+		sb.append(", Numar proiecte=").append(nr_proiecte);
+		sb.append(", Denumiri proiecte=").append(Arrays.toString(denumiriProiecte));
+		return sb.toString();
+	}
 }
