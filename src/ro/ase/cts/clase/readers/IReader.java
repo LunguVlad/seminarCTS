@@ -35,22 +35,6 @@ public abstract class IReader {
         aplicant.setVectorDenumiriProiecte(vect,nr);
 
         return aplicant;
-
-//        if(aplicant instanceof Angajat){
-//            int salariu = input.nextInt();
-//            String ocupatie = input.next();
-//
-//            ((Angajat) aplicant).setSalariu(salariu);
-//            ((Angajat) aplicant).setOcupatie(ocupatie);
-//
-//        }if(aplicant instanceof Elev){
-//
-//        }if(aplicant instanceof Student){
-//
-//        }
-
-        //return null;
-
     }
 
 }
