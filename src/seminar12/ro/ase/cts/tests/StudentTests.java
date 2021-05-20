@@ -20,8 +20,8 @@ public class StudentTests {
     public void testConstructorFaraParametrii(){
         Student student = new Student();
 
-        assertNotNull(student.getNote());
-        assertNotNull(student.getNume());
+        assertNotNull("Atributul note nu a fost initializat",student.getNote());
+        assertNotNull("Atributul nume nu  a fost initializat",student.getNume());
     }
 
     @Test
@@ -85,5 +85,46 @@ public class StudentTests {
 
         assertFalse(student.areRestante());
     }
+
+    @Test
+    public void testGetNotaExceptie(){
+        Student student = new Student();
+        student.adaugaNota(5);
+        student.adaugaNota(7);
+
+        //1
+        try{
+            //2
+            student.getNota(5);
+            //3
+
+        }catch (IndexOutOfBoundsException indexOutOfBoundsException){
+            //4
+        }catch (Exception exception){
+            fail("Metoda arunca o alta exceptie");
+        }
+        //5
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetNotaExceptieV4(){
+        Student student = new Student();
+        student.adaugaNota(5);
+        student.adaugaNota(7);
+
+        student.getNota(5);
+    }
+
+//    @Test
+//    public void testGetNotaExceptieV5(){
+//        Student student = new Student();
+//        student.adaugaNota(5);
+//        student.adaugaNota(7);
+//
+//        assertThrows(IndexOutOfBoundsException.class, () -> {
+//            student.getNota(5);
+//        });
+//
+//    }
 
 }
