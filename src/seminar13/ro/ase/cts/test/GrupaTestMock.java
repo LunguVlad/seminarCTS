@@ -1,8 +1,10 @@
 package seminar13.ro.ase.cts.test;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import seminar13.ro.ase.cts.clase.Grupa;
 import seminar13.ro.ase.cts.clase.IStudent;
+import seminar13.ro.ase.cts.test.categorii.GetPromovabilitateCategory;
 import seminar13.ro.ase.cts.test.mockuri.DummyStudent;
 import seminar13.ro.ase.cts.test.mockuri.FakeStudent;
 import seminar13.ro.ase.cts.test.mockuri.StubStudent;
@@ -25,6 +27,7 @@ public class GrupaTestMock {
     }
 
     @Test
+    @Category(GetPromovabilitateCategory.class)
     public void testGetPromovabilitate(){
         IStudent student = new StubStudent();
         Grupa grupa = new Grupa(1081);
@@ -35,6 +38,7 @@ public class GrupaTestMock {
     }
 
     @Test
+    @Category(GetPromovabilitateCategory.class)
     public void testGetPromovabilitateRight(){
         Grupa grupa = new Grupa(1081);
         for(int i=0;i<8;++i){

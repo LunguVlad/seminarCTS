@@ -2,9 +2,12 @@ package seminar13.ro.ase.cts.test;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import seminar13.ro.ase.cts.clase.Grupa;
 import seminar13.ro.ase.cts.clase.IStudent;
 import seminar13.ro.ase.cts.clase.Student;
+import seminar13.ro.ase.cts.test.categorii.GetPromovabilitateCategory;
+import seminar13.ro.ase.cts.test.categorii.TesteUrgenteCategory;
 
 import static org.junit.Assert.*;
 
@@ -31,6 +34,7 @@ public class GrupaTestFixture {
     }
 
     @Test(timeout = 500)
+    @Category({GetPromovabilitateCategory.class, TesteUrgenteCategory.class})
     public void testGetPromovabilitatePerformance(){
         grupa.getPromovabilitate();
     }
